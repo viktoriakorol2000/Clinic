@@ -1,14 +1,12 @@
-package Model;
+package dto;
 
-public class Employee {
+public class EmployeeDto {
     private String name;
     private String surname;
-    private EducationLevel educationLevel;
 
-    public Employee(String name, String surname, EducationLevel educationLevel) {
+    public EmployeeDto(String name, String surname) {
         this.name = name;
         this.surname = surname;
-        this.educationLevel = educationLevel;
     }
 
     public String getName() {
@@ -27,20 +25,12 @@ public class Employee {
         this.surname = surname;
     }
 
-    public EducationLevel getEducationLevel() {
-        return educationLevel;
-    }
-
-    public void setEducationLevel(EducationLevel educationLevel) {
-        this.educationLevel = educationLevel;
-    }
 
     @Override
     public String toString() {
         return "Employee{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", educationLevel=" + educationLevel +
                 '}';
     }
 }

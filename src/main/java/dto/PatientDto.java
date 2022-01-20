@@ -1,13 +1,13 @@
-package Model;
+package dto;
 
 import java.util.Date;
 
-public class PatientCard {
+public class PatientDto {
     private String name;
     private String surName;
-    private Date birthdate;
+    private String birthdate;
 
-    public PatientCard(String name, String surName, Date birthdate) {
+    public PatientDto(String name, String surName, String birthdate) {
         this.name = name;
         this.surName = surName;
         this.birthdate = birthdate;
