@@ -1,11 +1,20 @@
 package dto;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "department")
 public class DepartmentDto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column(name="DEPARTMENT_NAME", length=50, nullable=false, unique=false)
     private String name;
+    @OneToMany(mappedBy = "departmentDto")
     private List<EmployeeDto> employees;
+    @OneToMany(mappedBy = "id")
     private List<VisitDto> visits = new ArrayList<>();
 
     public DepartmentDto(String name) {

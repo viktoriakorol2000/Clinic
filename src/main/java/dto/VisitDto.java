@@ -1,10 +1,18 @@
 package dto;
 
-import java.util.Date;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "visit")
 public class VisitDto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @ManyToMany(mappedBy = "id")
     private PatientDto patient;
+    @ManyToMany(mappedBy = "id")
     private EmployeeDto employee;
+    @Column(name="VISIT_DATE", length=50, nullable=false, unique=false)
     private String date;
 
     public VisitDto(PatientDto patient, EmployeeDto employee, String date) {

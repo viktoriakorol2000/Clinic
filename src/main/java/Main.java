@@ -15,11 +15,12 @@ public class Main {
     свободным временем посещений. Для пациентов должны вестись
     регистрационные карточки.*/
     private static final Scanner in = new Scanner(System.in);
-
+    private static final Clinic clinic = createClinic();
+    private static final ClinicService clinicService = new ClinicService(clinic);
     public static void main(String[] args) {
         System.out.println("Добро пожаловать в клинику");
-        Clinic clinic = createClinic();
-        new ClinicService(clinic);
+
+
         String input;
         do{
             System.out.println("Выберите раздел:" +
@@ -78,6 +79,8 @@ public class Main {
         PatientDto patient = clinic.getPatients().get(patIndex);
         try {
             clinic.addVisit(dep, patient, employee, dateVisit);
+            VisitDto visit = new VisitDto(patient, employee,dateVisit);
+            //clinicService.add(visit);
         } catch (Exception e) {
             System.out.println("Ошибка" + e.getMessage());
         }

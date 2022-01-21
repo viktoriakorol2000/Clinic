@@ -5,7 +5,6 @@ import dto.EmployeeDto;
 import dto.PatientDto;
 import dto.VisitDto;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Clinic {

@@ -1,8 +1,19 @@
 package dto;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "employee")
 public class EmployeeDto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column(name = "EMPLOYEE_NAME", length = 50, nullable = false, unique = false)
     private String name;
+    @Column(name = "EMPLOYEE_SURNAME", length = 50, nullable = false, unique = false)
     private String surname;
+    @OneToMany(mappedBy = "id")
+    DepartmentDto departmentDto;
 
     public EmployeeDto(String name, String surname) {
         this.name = name;
